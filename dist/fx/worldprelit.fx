@@ -127,6 +127,12 @@ float CarbonFogDay(float z)
 
 float  mwPrelitSunFactor  = 0.6;    // prelit without normals: average sun share
 
+// The car ambient shadow (CarRenderInfo::DrawAmbientShadow) is drawn with this effect too, and
+// Extended Customization draws its neon the same way, with the neon colour in the vertex colour.
+// CarbonMWVisuals.asi adds PRELIT_UV_TAG to u for those quads only; they keep the original
+// Carbon shading (2 * texture * vertex colour), so the neon colour is not replaced by MW light.
+static const float PRELIT_UV_TAG = 4096.0;
+
 struct VS_IN_PRELIT
 {
     float4 pos : POSITION;
@@ -155,7 +161,9 @@ VS_OUT_PRELIT VS_Prelit(VS_IN_PRELIT i)
     VS_OUT_PRELIT o;
     float4 clip = mul(i.pos, WorldViewProj);
     o.pos = clip;
-    o.uv  = i.uv.xy;
+    float  tagged = i.uv.x > 0.5 * PRELIT_UV_TAG ? 1.0 : 0.0;   // car ambient shadow / neon
+    o.uv  = float2(i.uv.x - tagged * PRELIT_UV_TAG, i.uv.y);
+    float  dayBlend = mwDayBlend * (1.0 - tagged);
 
     float3 night = 2.0 * saturate(i.col.rgb);          // original: mul_x2 texture * vertexcolor
     float3 L = MWSunDir();
@@ -163,9 +171,9 @@ VS_OUT_PRELIT VS_Prelit(VS_IN_PRELIT i)
     // no world matrix & normal: object space treated as world, normal = sun direction
     MWDaylight(i.pos.xyz, L, EyeObjectSpace(), saturate(i.col.rgb), ambE, sun, inscat);
     float3 day = 2.0 * (ambE + mwPrelitSunFactor * sun);
-    o.light  = float4(lerp(night, day, mwDayBlend), i.col.a);
-    o.inscat = inscat * mwDayBlend;
-    o.fog    = CarbonFogDay(clip.z);
+    o.light  = float4(lerp(night, day, dayBlend), i.col.a);
+    o.inscat = inscat * dayBlend;
+    o.fog    = CarbonFogDay(clip.z);   // same fog as the road under it
     return o;
 }
 

@@ -1,5 +1,5 @@
-CarbonMWVisuals 1.0
-===================
+CarbonMWVisuals 1.0.1
+=====================
 
 Need for Speed: Most Wanted daytime visuals for Need for Speed: Carbon.
 
@@ -120,6 +120,12 @@ TROUBLESHOOTING
   shadows off.
 - For bug reports, always attach CarbonMWVisuals.log and your CarbonMWVisuals.ini.
 
+
+CHANGES
+-------
+1.0.1  Extended Customization neon colours work again (they were all white). The car's
+       ambient shadow under the car keeps Carbon's own shading now.
+1.0    First release.
 
 CREDITS
 -------

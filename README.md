@@ -1,4 +1,4 @@
-# CarbonMWVisuals 1.0
+# CarbonMWVisuals 1.0.1
 
 An ASI for **NFS Carbon v1.4 (`NFSC.exe`)** that replaces Carbon's shaders with **NFS Most Wanted**
 style daytime versions: world/road/car lighting, sky and colour grading, plus dynamic sun shadows,

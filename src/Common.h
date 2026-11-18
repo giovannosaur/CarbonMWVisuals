@@ -2,7 +2,7 @@
 #pragma once
 #include "pch.h"
 
-#define CMWV_VERSION "1.0"
+#define CMWV_VERSION "1.0.1"
 
 // ---------------------------------------------------------------------------------------------
 // Compiler compatibility: MSVC (Visual Studio, x86/Win32) and MinGW GCC (i686-w64-mingw32-g++).
