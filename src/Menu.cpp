@@ -344,7 +344,7 @@ void Menu_Frame(void)
 void Menu_Init(void)
 {
     g_menuEnable = GetPrivateProfileIntA("Menu", "Enable", 1, g_iniPath);
-    g_menuKey = Cfg_Key("Menu", "Key", "F11");
+    g_menuKey = Cfg_Key("Menu", "Key", "F12");
     if (!g_menuKey) g_menuEnable = 0;
     Log("menu: Enable=%d key vk=0x%02X\n", g_menuEnable, g_menuKey);
 }

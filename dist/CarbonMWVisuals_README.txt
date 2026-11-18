@@ -60,7 +60,7 @@ Delete the files and the folder listed above, or set
 
 IN-GAME MENU (F12)
 ------------------
-Press F11 to show or hide the settings menu (use the mouse). Changes apply immediately.
+Press F12 to show or hide the settings menu (use the mouse). Changes apply immediately.
 "Save to .ini" keeps them for the next start.
 
 - In-game:        time of day while driving (time, speed, mode, weather)

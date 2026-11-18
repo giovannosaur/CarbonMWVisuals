@@ -90,7 +90,7 @@ first and logs a `WARNING` (without patching) if they do not match.
 
 ## In-game menu
 
-Press **F11** (`[Menu] Key`) for an overlay with all time of day settings, adjustable with the
+Press **F12** (`[Menu] Key`) for an overlay with all time of day settings, adjustable with the
 mouse: an *In-game* tab (`[TimeOfDay]`) and a *Menus / garage* tab (`[FrontEndTimeOfDay]`, the FE's
 own clock, plus the MW reflection cubemap on/off and set), a *Global* tab (sun shadows on/off and
 quality = `[Shadows] Size` for world and cars; a new size is used after restarting the game) and the
