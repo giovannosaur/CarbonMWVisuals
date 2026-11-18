@@ -1,0 +1,9 @@
+# Normalise line endings in the repository (LF), check out as the platform prefers.
+* text=auto
+# Visual Studio files stay CRLF, shell scripts stay LF (bash breaks on CRLF).
+*.sln text eol=crlf
+*.vcxproj text eol=crlf
+*.vcxproj.filters text eol=crlf
+*.sh text eol=lf
+*.dds binary
+*.asi binary
